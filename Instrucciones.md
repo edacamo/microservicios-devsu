@@ -88,3 +88,20 @@ COPY --from=build /app/target/justification*.jar app.jar
 en ves de justifiacion le cambias por el nombre del artifactId que este en el pom
 
 ecuador2025
+
+
+----Para descargar Kafka desde docker
+cd /Usuarios/ecarchipulla/Documents (ruta propia)
+  docker-compose -f docker-compose-kafka.yml up -d
+  docker-compose -f docker-compose-kafka.yml down
+
+----Para ver logs de los contenedores en vivo
+  docker logs -f kafka
+  docker logs -f zookeeper
+
+----Script: kafka-status.sh (automonitoreo básico)
+  1.- Dale permisos de ejecución:
+    chmod +x kafka-status.sh
+
+  2.-Ejecutalo cada vez que quieras ver el estado:
+    ./kafka-status.sh
