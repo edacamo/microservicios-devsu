@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "03aee1f5-7210-4e54-93c2-c4d53edd18a3",
+		"name": "PRUEBA-DEVSU",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19052520"
+	},
+	"item": [
+		{
+			"name": "Cuentas",
+			"item": [
+				{
+					"name": "registrarCuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroCuenta\": \"19445563\",\r\n    \"tipo\": \"AHORRO\",\r\n    \"saldoInicial\": 120,\r\n    \"estado\": 1,\r\n    \"clienteId\": \"jperez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8002/cuentas/registrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"cuentas",
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarCuentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/cuentas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarCuenta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numeroCuenta\": \"19445565\",\n    \"tipo\": \"AHORRO\",\n    \"saldoInicial\": 120,\n    \"estado\": 1,\n    \"clienteId\": \"jperez\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8002/cuentas/actualizar/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"cuentas",
+								"actualizar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarCuenta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/cuentas/eliminar/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"cuentas",
+								"eliminar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movimientos",
+			"item": [
+				{
+					"name": "listarMovimientosPorCuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/movimientos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"movimientos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarMovimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fecha\": \"\",\n    \"tipoMovimiento\": \"D\",\n    \"valor\": 10,\n    \"numeroCuenta\": \"19445565\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8002/movimientos/registrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"movimientos",
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "elminarMovimiento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/movimientos/eliminar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"movimientos",
+								"eliminar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerReportePorCuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": \"jperez\",\n    \"startDate\": \"2025-03-20T00:00:00\",\n    \"endDate\": \"2025-03-21T23:59:59\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8002/movimientos/reporte",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"movimientos",
+								"reporte"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "listarClientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getClienteById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clienteId\": \"epenaranda\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/clientes/id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"clientes",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarCliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usuario\": \"jperez\",\n    \"password\": \"ecuador2025\",\n    \"nombre\": \"Juan Perez Lopez\",\n    \"genero\": \"M\",\n    \"edad\": 38,\n    \"identificacion\": \"0152789654\",\n    \"direccion\": \"Cuenca\",\n    \"telefono\": \"0958714598\",\n    \"estado\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/clientes/actualizar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"clientes",
+								"actualizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarCliente",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/clientes/eliminar/jperez",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"clientes",
+								"eliminar",
+								"jperez"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registroCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"jperez\",\r\n    \"password\": \"ecuador2025\",\r\n    \"nombre\": \"Juan Perez\",\r\n    \"genero\": \"M\",\r\n    \"edad\": 35,\r\n    \"identificacion\": \"0152789654\",\r\n    \"direccion\": \"Cuenca\",\r\n    \"telefono\": \"0958714598\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/clientes/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"clientes",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

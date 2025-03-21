@@ -1,26 +1,60 @@
-version: '3.8'
-
 services:
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - adrius-network
+
+  kafka:
+    image: bitnami/kafka:latest
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+    networks:
+      - adrius-network
+
   ms-persons:
     build:
-      context: ./ms-persons  # Directorio donde está el Dockerfile de ms-persons
+      context: ../ms-persons  # Directorio donde está el Dockerfile de ms-persons
+    container_name: ms-persons
+    image: ms-persons:latest
     ports:
       - "8001:8001"
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+      - KAFKA_BROKER=kafka:9092
+    depends_on:
+      - kafka #Con esto se asegura que kafka esté levantado antes de levantar ms-persons
     networks:
-      - my-network
+      - adrius-network
 
   ms-accounts:
     build:
-      context: ./ms-accounts  # Directorio donde está el Dockerfile de ms-accounts
+      context: ../ms-accounts  # Directorio donde está el Dockerfile de ms-accounts
+    container_name: ms-accounts
+    image: ms-accounts:latest
     ports:
       - "8002:8002"
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+      - KAFKA_BROKER=kafka:9092
+    depends_on:
+      - kafka #Con esto se asegura que kafka esté levantado antes de levantar ms-accounts
     networks:
-      - my-network
+      - adrius-network
 
 networks:
-  my-network:
+  adrius-network:
     driver: bridge
