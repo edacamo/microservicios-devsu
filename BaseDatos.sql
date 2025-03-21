@@ -1,8 +1,3 @@
-/*Creacion de la base de datos*/
-CREATE DATABASE db_prueba_devsupersonas
-CHARACTER SET utf8mb4
-COLLATE utf8mb4_unicode_ci;
-
 /*Creacion tabla Persona*/
 CREATE TABLE persona (
 	 id SERIAL PRIMARY KEY,
@@ -12,7 +7,7 @@ CREATE TABLE persona (
 	 identificacion VARCHAR(13) UNIQUE NOT NULL,
 	 direccion VARCHAR(255),
 	 telefono VARCHAR(20),
-	 CONSTRAINT ck_genero CHECK (genero IN ('M', 'F')),
+	 CONSTRAINT ck_genero CHECK (genero IN ('M', 'F'))
 );
 
 /*Creacion tabla Cliente*/
@@ -46,9 +41,3 @@ CREATE TABLE movimiento (
 	CONSTRAINT ck_tipo_movimiento CHECK (tipo_movimiento IN ('C', 'D')),
 	CONSTRAINT fk_movimiento_cuenta FOREIGN KEY (cuenta_id) REFERENCES cuenta (id)
 );
-
-/*SELECTS*/
-select * from persona;
-select * from cliente;
-select * from cuenta;
-select * from movimiento;

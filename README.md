@@ -2,6 +2,7 @@
 
 ## INDICACIONES GENERALES
 El proyecto ha sido compilado y probado en un sistema operativo macOS con JDK 17.
+### La base datos que se usa es PostgreSQL, una imagen de RENDER.
 
 ## REQUISITOS
 1. Descargar e instalar Docker Desktop (para Mac/Windows).
@@ -13,17 +14,25 @@ El proyecto ha sido compilado y probado en un sistema operativo macOS con JDK 17
 ```bash
 git clone https://github.com/edacamo/ms-persons.git
 git clone https://github.com/edacamo/ms-accounts.git
+git clone https://github.com/edacamo/microservicios-devsu-docs.git
 ```
+
+#### Del repositorio "microservicios-devsu-docs.git", considerar los siguientes archivos.
+1. BaseDatos.sql
+2. docker-compose-devsu.yml
+3. PRUEBA-DEVSU.postman_collection.json
+4. CredencialesBaseDatos.txt: Para revisar la información de la Base Datos.
+5. Carpeta -> Capturas.
 
 ## PRUEBAS UNITARIAS E INTEGRALES
 
-# Para la prueba unitaria (en `ms-persons`):
+## Para revisar la prueba unitaria (en `ms-persons`):
 ```bash
 cd ms-persons
 mvn clean install
 ```
 
-# Para la prueba integral (en `ms-accounts`):
+##  Para revisarla prueba integral (en `ms-accounts`):
 ```bash
 cd ms-accounts
 ```
