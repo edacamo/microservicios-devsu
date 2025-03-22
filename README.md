@@ -1,7 +1,7 @@
 # INSTRUCCIONES DE CONFIGURACIÓN Y EJECUCIÓN
 
 ## INDICACIONES GENERALES
-El proyecto ha sido compilado y probado en un sistema operativo macOS con JDK 17.
+El proyecto ha sido compilado y probado en un sistema operativo Windows con JDK 17.
 ### La base datos que se usa es PostgreSQL, una imagen de RENDER.
 
 ## REQUISITOS
